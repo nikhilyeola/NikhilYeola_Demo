@@ -111,8 +111,8 @@ class CryptoTableViewCell: UITableViewCell {
         if cryptoCoin.isActive == false{
             titleLabel.textColor = .disableTitle
             typeLabel.textColor = .disableSubTitle
-            customImageView.alpha = 0.5
-            customNewImageView.alpha = 0.5
+            customImageView.alpha = 0.3
+            customNewImageView.alpha = 0.3
         }
     }
     override func prepareForReuse() {

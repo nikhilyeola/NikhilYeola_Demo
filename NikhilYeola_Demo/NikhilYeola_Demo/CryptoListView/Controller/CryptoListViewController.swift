@@ -29,7 +29,6 @@ class CryptoListViewController: UIViewController {
         let recButton = UIButton(type: .system)
         recButton.setTitle("Reconnect", for: .normal)
         recButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        recButton.addTarget(self, action: #selector(reconnectButtonTapped), for: .touchUpInside)
         return recButton
     }()
     
@@ -65,7 +64,7 @@ class CryptoListViewController: UIViewController {
         }
         if viewModel.isErrorOccured{
             viewModel.isErrorOccured = false
-//            showMessageAlert(title: "Error", message: viewModel.errorText)
+            showMessageAlert(title: "Error", message: viewModel.errorText)
         }
         if viewModel.allCoins.isEmpty && noDataLabel.isHidden == false{
             reconnectButton.isHidden = false
@@ -93,6 +92,7 @@ class CryptoListViewController: UIViewController {
     }
     
     private func setupReconnectButton(){
+        reconnectButton.addTarget(self, action: #selector(reconnectButtonTapped), for: .touchUpInside)
         view.addSubview(reconnectButton)
         reconnectButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
